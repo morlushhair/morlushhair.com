@@ -44,6 +44,19 @@ exports.handler = async (event) => {
   // collect shipping address since these are physical goods
   params.append('shipping_address_collection[allowed_countries][0]', 'CA');
   params.append('shipping_address_collection[allowed_countries][1]', 'US');
+  // collect a phone number
+  params.append('phone_number_collection[enabled]', 'true');
+  // shipping options: Standard shipping ($15) + free Calgary pickup
+  // NOTE: $15 is a temporary flat rate — change SHIP_CENTS below to update.
+  const SHIP_CENTS = 1500;
+  params.append('shipping_options[0][shipping_rate_data][type]', 'fixed_amount');
+  params.append('shipping_options[0][shipping_rate_data][fixed_amount][amount]', String(SHIP_CENTS));
+  params.append('shipping_options[0][shipping_rate_data][fixed_amount][currency]', 'cad');
+  params.append('shipping_options[0][shipping_rate_data][display_name]', 'Standard shipping');
+  params.append('shipping_options[1][shipping_rate_data][type]', 'fixed_amount');
+  params.append('shipping_options[1][shipping_rate_data][fixed_amount][amount]', '0');
+  params.append('shipping_options[1][shipping_rate_data][fixed_amount][currency]', 'cad');
+  params.append('shipping_options[1][shipping_rate_data][display_name]', 'Local pickup \u2014 Calgary, AB');
 
   let i = 0;
   for (const item of cart) {
@@ -61,6 +74,9 @@ exports.handler = async (event) => {
     params.append(`line_items[${i}][price_data][product_data][name]`, label);
     params.append(`line_items[${i}][price_data][unit_amount]`, String(amountCents));
     params.append(`line_items[${i}][quantity]`, String(qty));
+    params.append(`line_items[${i}][adjustable_quantity][enabled]`, 'true');
+    params.append(`line_items[${i}][adjustable_quantity][minimum]`, '1');
+    params.append(`line_items[${i}][adjustable_quantity][maximum]`, '20');
     i++;
   }
 
