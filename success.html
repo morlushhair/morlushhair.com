@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You — MorLush Hair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --cream:#e9e6e1; --warm-white:#f4f2ee; --espresso:#161412; --caramel:#b5895f; --text:#2a2620; --blush:#e3d9d2; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Jost',sans-serif; background:var(--cream); color:var(--text); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:2rem; }
+  .card { background:var(--warm-white); border:1px solid var(--blush); border-radius:16px; max-width:560px; width:100%; text-align:center; padding:4rem 2.5rem; }
+  .mark { width:64px; height:64px; border-radius:50%; background:var(--espresso); color:var(--cream); display:flex; align-items:center; justify-content:center; font-size:1.8rem; margin:0 auto 1.6rem; }
+  .label { font-size:.74rem; letter-spacing:.2em; text-transform:uppercase; color:var(--caramel); margin-bottom:.8rem; }
+  h1 { font-family:'Playfair Display',serif; font-size:2.4rem; color:var(--espresso); font-weight:600; line-height:1.15; margin-bottom:1.1rem; }
+  p { font-size:1rem; line-height:1.7; color:var(--text); margin-bottom:1rem; max-width:44ch; margin-left:auto; margin-right:auto; }
+  .note { font-size:.88rem; color:#7a726b; }
+  a.btn { display:inline-block; margin-top:1.8rem; background:var(--espresso); color:var(--cream); text-decoration:none; padding:.85rem 2.2rem; border-radius:2px; font-size:.8rem; letter-spacing:.12em; text-transform:uppercase; transition:background .2s; }
+  a.btn:hover { background:var(--caramel); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="mark">&#10003;</div>
+    <p class="label">Order Confirmed</p>
+    <h1>Thank you for your order</h1>
+    <p>Your payment was received and your order is confirmed. A receipt has been emailed to you by Stripe.</p>
+    <p class="note">Because our extensions are made to order, we'll be in touch at the email you provided to confirm your colour, length, and shipping timeline. Questions? Reach us anytime at info@morlushhair.com.</p>
+    <a class="btn" href="/">Back to MorLush Hair</a>
+  </div>
+</body>
+</html>
